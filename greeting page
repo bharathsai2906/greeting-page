@@ -1,0 +1,82 @@
+HTML....
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"/>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/ac42c3b1f7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="greeting.css"/>
+    
+</head>
+<body>
+<div class="greeting-card-container">
+    <div class="text-right">
+        <p class="greet" id="greetFrom"></p>
+        <p class="greet" id="greetTo"></p>
+    </div>
+    <div class="greet-text-container">
+        <h1 class="heading">Happy <br /> <span class="new-year">New Year</span>  </h1>
+        <p class="greet-text mt-4" id="greetText"></p>
+    </div>
+</div>
+
+<script src="greeting.js"></script>
+</body>
+</html>
+
+.CSS...
+
+@import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap");
+
+.greeting-card-container {
+  background-image: url("https://th.bing.com/th/id/R.f063cd3905a5d42ee92a1f3d2487bbe5?rik=0IuBD2wCsRmnAA&riu=http%3a%2f%2fthumbs.dreamstime.com%2fz%2fgold-gift-box-abstract-gold-background-17191291.jpg&ehk=9zsN7oOhqM0IQ0ACtRapc6ZWzSVevdadT9WeCO4q2m8%3d&risl=&pid=ImgRaw&r=0");
+  background-size: cover;
+  height: 100vh;
+  padding: 20px;
+  width: 100%;
+}
+
+.greet {
+  color: #1f2933;
+  font-family: "DM Sans";
+  font-weight: bold;
+}
+
+.heading {
+  color: #1f2933;
+  font-family: "Playfair Display";
+  font-size: 50px;
+  font-weight: 500;
+}
+
+.new-year {
+  font-size: 75px;
+}
+
+.greet-text-container {
+  text-align: center;
+  height: 80vh;
+}
+
+.greet-text {
+  color: #323f4b;
+  font-family: "Roboto";
+  font-size: 30px;
+}
+
+.JS...
+
+let greeting = '{"greetText": "Wishing That the new year will bring joy, love, peace, and happiness to you.", "from": "Rahul", "to": "Varakumar"}';
+ 
+let parsedValue = JSON.parse(greeting);
+
+let greetTextEl = document.getElementById("greetText");
+let greetFromEl = document.getElementById("greetFrom");
+let greetToEl = document.getElementById("greetTo");
+
+greetTextEl.textContent = parsedValue.greetText;
+greetFromEl.textContent = "From: " + parsedValue.from;
+greetToEl.textContent = "To: " + parsedValue.to;
